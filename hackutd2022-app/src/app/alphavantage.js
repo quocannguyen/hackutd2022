@@ -4,6 +4,8 @@
  * @param {String} key
  *   Your Alpha Vantage API key.
  */
+import {useDispatch} from "react-redux";
+
 const alpha = require('alphavantage')({ key: 'RGGF467DVA4HVIUR' });
 
 export default function test() {
@@ -21,4 +23,7 @@ export default function test() {
     // alpha.data.monthly_adjusted(symbol, outputsize, datatype, interval);
     // alpha.data.quote(symbol, outputsize, datatype, interval);
     // alpha.data.search(keywords);
+
+    const dispatch = useDispatch()
+
 }
