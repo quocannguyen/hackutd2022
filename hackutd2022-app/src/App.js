@@ -5,7 +5,7 @@ import './App.css';
 
 function App() {
   return (
-    <div className="min-h-screen p-40 bg-indigo-400 text-center">
+    <div>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
