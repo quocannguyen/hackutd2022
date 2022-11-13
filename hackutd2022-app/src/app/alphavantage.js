@@ -4,21 +4,15 @@
  * @param {String} key
  *   Your Alpha Vantage API key.
  */
+import {useDispatch} from "react-redux";
+import {add} from "../features/previousdata/previousDataSlice";
+import {getStockDataArrayFrom} from "../data/StockData";
+
 const alpha = require('alphavantage')({ key: 'RGGF467DVA4HVIUR' });
 
-export default function test() {
-// Simple examples
-    alpha.data.intraday(`msft`).then((data) => {
-        console.log(data);
-    });
-
-    // alpha.data.intraday(symbol, outputsize, datatype, interval);
-    // alpha.data.daily(symbol, outputsize, datatype, interval);
-    // alpha.data.daily_adjusted(symbol, outputsize, datatype, interval);
-    // alpha.data.weekly(symbol, outputsize, datatype, interval);
-    // alpha.data.weekly_adjusted(symbol, outputsize, datatype, interval);
-    // alpha.data.monthly(symbol, outputsize, datatype, interval);
-    // alpha.data.monthly_adjusted(symbol, outputsize, datatype, interval);
-    // alpha.data.quote(symbol, outputsize, datatype, interval);
-    // alpha.data.search(keywords);
+export function getIntradayStockDataBySymbol(symbol) {
+    return alpha.data.intraday(symbol).then(result => {
+        let key = Object.keys(result)[1]
+        return getStockDataArrayFrom(result[key])
+    })
 }
