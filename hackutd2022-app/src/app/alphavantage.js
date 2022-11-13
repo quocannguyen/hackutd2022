@@ -6,6 +6,12 @@
  */
 const alpha = require('alphavantage')({ key: 'RGGF467DVA4HVIUR' });
 
+export function searchEndpoint(keywords) {
+    alpha.data.search(keywords).then((result) => {
+        console.log(result)
+    })
+}
+
 export default function test() {
 // Simple examples
     alpha.data.intraday(`msft`).then((data) => {
