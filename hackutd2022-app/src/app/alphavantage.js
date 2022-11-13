@@ -4,11 +4,16 @@
  * @param {String} key
  *   Your Alpha Vantage API key.
  */
+import {getStockSymbolFrom} from "../data/StockSymbol";
+
 const alpha = require('alphavantage')({ key: 'RGGF467DVA4HVIUR' });
 
 export function searchEndpoint(keywords) {
     alpha.data.search(keywords).then((result) => {
         console.log(result)
+        result["bestMatches"].forEach(match => {
+            console.log(getStockSymbolFrom(match))
+        })
     })
 }
 

@@ -5,13 +5,13 @@ import { store } from './app/store';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
-import test from "./app/alphavantage";
+import test, {searchEndpoint} from "./app/alphavantage";
 
 const container = document.getElementById('root');
 const root = createRoot(container);
 
 test()
-
+searchEndpoint("tesco")
 
 root.render(
   <React.StrictMode>
