@@ -4,8 +4,6 @@
  * @param {String} key
  *   Your Alpha Vantage API key.
  */
-import {useDispatch} from "react-redux";
-import {add} from "../features/previousdata/previousDataSlice";
 import {getStockDataArrayFrom} from "../data/StockData";
 
 const alpha = require('alphavantage')({ key: 'RGGF467DVA4HVIUR' });
