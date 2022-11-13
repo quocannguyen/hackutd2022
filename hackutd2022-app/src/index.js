@@ -10,8 +10,6 @@ import test from "./app/alphavantage";
 const container = document.getElementById('root');
 const root = createRoot(container);
 
-test()
-
 root.render(
   <React.StrictMode>
     <Provider store={store}>
